@@ -1,13 +1,12 @@
 package lk.ise.pos.db;
-
 import lk.ise.pos.entity.User;
-
 import java.util.ArrayList;
 
 /**
  * @author : W.W.M.H.Chamuditha
  * @since : 12/31/2022
  **/
+
 public class Database {
     public static ArrayList<User> users = new ArrayList<>();
 
