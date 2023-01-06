@@ -59,7 +59,6 @@ public class LoginFormController {
     }
 
     public void loginOnAction(ActionEvent actionEvent) throws IOException {
-
         loggingOnAction(actionEvent);
     }
 }
