@@ -17,7 +17,7 @@
       </Label>
       <Separator layoutX="33.0" layoutY="99.0" prefHeight="5.0" prefWidth="450.0" />
       <TextField fx:id="txtUserName" layoutX="33.0" layoutY="155.0" prefHeight="46.0" prefWidth="450.0" promptText="User Name" />
-      <PasswordField fx:id="pwd" layoutX="33.0" layoutY="230.0" prefHeight="46.0" prefWidth="450.0" promptText="Password" />
+      <PasswordField fx:id="pwd" layoutX="33.0" layoutY="230.0" onAction="#loginOnAction" prefHeight="46.0" prefWidth="450.0" promptText="Password" />
       <Button layoutX="33.0" layoutY="331.0" mnemonicParsing="false" onAction="#loggingOnAction" prefHeight="62.0" prefWidth="450.0" text="Sign in">
          <font>
             <Font size="20.0" />

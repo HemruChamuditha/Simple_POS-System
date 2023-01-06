@@ -1,13 +1,20 @@
 package lk.ise.pos.control;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 import lk.ise.pos.db.Database;
 import lk.ise.pos.entity.User;
 import org.mindrot.jbcrypt.BCrypt;
+
+import java.io.IOException;
+import java.util.Stack;
 
 /**
  * @author : W.W.M.H.Chamuditha
@@ -23,7 +30,7 @@ public class LoginFormController {
 
     }
 
-    public void loggingOnAction(ActionEvent actionEvent) {
+    public void loggingOnAction(ActionEvent actionEvent) throws IOException {
 
         /** for (User u : Database.users){
             if (u.getUsername().equals(txtUserName.getText())){
@@ -37,7 +44,11 @@ public class LoginFormController {
         if (selectedUser != null){
 
             if (BCrypt.checkpw(pwd.getText(),selectedUser.getPassword())){
-                System.out.println("User Logged");
+
+                Stage stage = (Stage) logingFormContext.getScene().getWindow();
+                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/DashboardFrom.fxml"))));
+                stage.centerOnScreen();
+
             }else {
                 System.out.println("Wrong password");
             }
@@ -45,5 +56,10 @@ public class LoginFormController {
         }else {
             new Alert(Alert.AlertType.WARNING,"User Not found!").show();
         }
+    }
+
+    public void loginOnAction(ActionEvent actionEvent) throws IOException {
+
+        loggingOnAction(actionEvent);
     }
 }
