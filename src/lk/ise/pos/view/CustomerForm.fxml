@@ -54,13 +54,13 @@
             <Font size="17.0" />
          </font>
       </TextField>
-      <TableView layoutX="14.0" layoutY="265.0" prefHeight="297.0" prefWidth="825.0">
+      <TableView fx:id="tbl" layoutX="14.0" layoutY="265.0" prefHeight="297.0" prefWidth="825.0">
         <columns>
-          <TableColumn prefWidth="107.0" text="Id" />
-            <TableColumn minWidth="0.0" prefWidth="165.0" text="Name" />
-            <TableColumn minWidth="0.0" prefWidth="161.0" text="Address" />
-            <TableColumn minWidth="0.0" prefWidth="167.0" text="Salary" />
-            <TableColumn minWidth="0.0" prefWidth="180.0" text="Options" />
+          <TableColumn fx:id="colId" prefWidth="107.0" text="Id" />
+            <TableColumn fx:id="colName" minWidth="0.0" prefWidth="165.0" text="Name" />
+            <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="161.0" text="Address" />
+            <TableColumn fx:id="colSalary" minWidth="0.0" prefWidth="167.0" text="Salary" />
+            <TableColumn fx:id="colOption" minWidth="0.0" prefWidth="224.0" text="Options" />
         </columns>
       </TableView>
    </children>
