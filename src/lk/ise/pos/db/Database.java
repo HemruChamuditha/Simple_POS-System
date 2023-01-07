@@ -1,4 +1,5 @@
 package lk.ise.pos.db;
+import lk.ise.pos.entity.Customers;
 import lk.ise.pos.entity.User;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 
 public class Database {
     public static ArrayList<User> users = new ArrayList<>();
+    public static ArrayList<Customers> customers = new ArrayList<Customers>();
 
     static {
 

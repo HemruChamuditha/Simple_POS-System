@@ -41,9 +41,41 @@ public class DashboardFromController {
     }
 
     public void logoutOnAction(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage) dashboardContext.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/LoginForm.fxml"))));
-        stage.centerOnScreen();
-        new Alert(Alert.AlertType.WARNING,"Logged out!").show();
+        setUi("LoginForm");
     }
+
+    public void openCustomerForm(ActionEvent actionEvent) throws IOException {
+
+        /**
+
+         For remove boilerplate codes we can create a new method....
+         Stage stage = (Stage) dashboardContext.getScene().getWindow();
+         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/CustomerForm.fxml.fxml"))));
+         stage.centerOnScreen();
+
+         **/
+
+        setUi("CustomerForm");
+
+    }
+
+    public void openItemForm(ActionEvent actionEvent) {
+    }
+
+    public void openOrderForm(ActionEvent actionEvent) {
+    }
+
+    public void openNewOrderForm(ActionEvent actionEvent) {
+    }
+
+    public void openIncomeForm(ActionEvent actionEvent) {
+    }
+
+    private void setUi(String location) throws IOException {
+        Stage stage = (Stage) dashboardContext.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/"+location+".fxml"))));
+        stage.centerOnScreen();
+
+    }
+
 }
