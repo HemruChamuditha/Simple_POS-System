@@ -28,6 +28,10 @@ public class Database {
         Item item2 = new Item("002","des2","45",1233);
         Item item3 = new Item("003","des3","9",6777);
 
+        customers.add(new Customers("C001", "Kavindu", "Colombo", 40000));
+        customers.add(new Customers("C002", "Jagath", "Jaffna", 43000));
+        customers.add(new Customers("C003", "sunil", "Colombo", 40000));
+
         items.addAll(
                 Arrays.asList(item1,item2,item3)
         );

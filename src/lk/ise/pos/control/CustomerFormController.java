@@ -10,6 +10,8 @@ import lk.ise.pos.db.Database;
 import lk.ise.pos.entity.Customers;
 import lk.ise.pos.view.tm.CustomerTM;
 
+import java.util.Optional;
+
 /**
  * @author : W.W.M.H.Chamuditha
  * @since : 1/7/2023
@@ -62,9 +64,26 @@ public class CustomerFormController {
         Customers c1 = new Customers(txtId.getText(),txtName.getText(),txtAddress.getText()
                 ,Double.parseDouble(txtSalary.getText()));
 
-        Database.customers.add(c1);
-        new Alert(Alert.AlertType.INFORMATION,"Customer Saved !").show();
-        loadAll("");
+
+        if (btn.getText().equals("Save Customer")){
+            Database.customers.add(c1);
+            new Alert(Alert.AlertType.INFORMATION,"Customer Saved !").show();
+            loadAll("");
+        }else {
+            for (Customers c : Database.customers){
+                if (c.getId().equals(txtId.getText())){
+                    c.setName(c1.getName());
+                    c.setAddress(c1.getAddress());
+                    c.setSalary(c1.getSalary());
+
+                    new Alert(Alert.AlertType.INFORMATION,"Customer Updated !").show();
+                    loadAll("");
+                    btn.setText("Save Customer");
+                }
+            }
+        }
+
+
         clearData();
 
 
@@ -85,8 +104,29 @@ public class CustomerFormController {
             CustomerTM tm = new CustomerTM(
                     c.getId(),c.getName(),c.getAddress(),c.getSalary(),btn
             );
+
+             btn.setOnAction(event -> {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Are you sure?",
+                        ButtonType.YES,ButtonType.NO);
+
+                 Optional<ButtonType> type = alert.showAndWait();
+
+                 if (type.get() == ButtonType.YES){
+                     Database.customers.remove(c);
+                    new Alert(Alert.AlertType.INFORMATION,"Customer Deleted!").show();
+                    loadAll("");
+                 }
+             });
+
+
             tmList.add(tm);
         }
         tbl.setItems(tmList);
+    }
+
+    public void newCustomerOnAction(ActionEvent actionEvent) {
+
+        clearData();
+        btn.setText("Save Customer");
     }
 }
